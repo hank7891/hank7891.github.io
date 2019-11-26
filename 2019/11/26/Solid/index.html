@@ -5,13 +5,17 @@
   
 
   
-  <title>LinYoYo_攻城獅_學習筆記</title>
+  <title>Solid | LinYoYo_攻城獅_學習筆記</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LinYoYo_攻城獅_學習筆記">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。 若對該原則理解有誤，請不吝指教。 SOLID? 在程式設計的領域中，SOLID指物件導向編成和物件導向設計的五個基本原則。 當這些原則一起被應用時，可以使程式設計師開發一個容易擴充及維護的系統。 SOLID所包含的原則是通過引發編程者進行軟體原始碼代碼重構的代碼異味清掃。從而使軟體清晰可讀及具可擴展性。 SOLID">
+<meta name="keywords" content="PHP,程式設計,SOLID">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solid">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;Solid&#x2F;index.html">
 <meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記">
+<meta property="og:description" content="其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。 若對該原則理解有誤，請不吝指教。 SOLID? 在程式設計的領域中，SOLID指物件導向編成和物件導向設計的五個基本原則。 當這些原則一起被應用時，可以使程式設計師開發一個容易擴充及維護的系統。 SOLID所包含的原則是通過引發編程者進行軟體原始碼代碼重構的代碼異味清掃。從而使軟體清晰可讀及具可擴展性。 SOLID">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-11-26T07:59:24.253Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="LinYoYo_攻城獅_學習筆記" type="application/atom+xml">
@@ -63,9 +67,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Solid" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Solid" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/26/Solid/" class="article-date">
   <time datetime="2019-11-26T07:57:00.000Z" itemprop="datePublished">2019-11-26</time>
@@ -82,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/Solid/">Solid</a>
+    <h1 class="article-title" itemprop="name">
+      Solid
     </h1>
   
 
@@ -223,119 +225,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Interface" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/26/Interface/" class="article-date">
-  <time datetime="2019-11-26T07:29:00.000Z" itemprop="datePublished">2019-11-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/PHP/">PHP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/Interface/">Interface</a>
-    </h1>
+    <a href="/2019/11/26/Interface/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Interface</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><ul>
-<li>又稱 <code>介面</code> <code>接口</code> <code>契約</code></li>
-<li>介面本身是<code>抽象</code>的。指一系列的 <code>Public</code> <code>屬性</code>或<code>函式</code>。所以你的物件，即便沒有實作任何介面他本身也是一個介面。它提供的介面就是自己所有 <code>Public</code> 的<code>屬性</code>跟<code>函式</code>。</li>
-<li>介面可以確保<code>依賴物件</code>提供你想要的功能。</li>
-<li>每個物件都是<code>實作介面</code>。</li>
-<li>創造物件<code>實作基礎介面</code>，你的物件就可以執行語言的<code>基礎函式</code> ex: foreach。</li>
-</ul>
-<p>舉例: PHP 中的 array 也是實作幾個陣列功能會用到的 interface</p>
-<h4 id="還記得一個物件可以實作多個介面嗎？"><a href="#還記得一個物件可以實作多個介面嗎？" class="headerlink" title="還記得一個物件可以實作多個介面嗎？"></a>還記得一個物件可以實作多個介面嗎？</h4><p>這裡會牽扯到兩個物件的耦合程度。<br>假設你的函式宣告參數的型別是宣告成<code>某個介面</code>。那你在函式裡面只會拿到介面的 Public 屬性跟函式。<br>但是如果你把參數的型別直接宣告成<code>某個物件</code>，在函式裡面就會拿到物件的所有 Public 屬性跟介面。</p>
-<p>如果你的函式只需要其中一個介面提供的功能，那就在把參數的型別指定為介面就好。否則你會依賴整個物件。</p>
-<h4 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h4><p>你會發現整個語言都是照著介面在開發。所以有人常說 <code>programin to a interface</code>。<br>介面只是定義一個抽象的概念，至於要實作成什麼樣子，是需要按照需求來決定。</p>
-<p>重點是 <code>interface</code> 或<code>抽象類別</code>，都是向上層程式碼保證他們能提供<code>指定的功能</code>。</p>
-<p>–</p>
-<h4 id="小知識"><a href="#小知識" class="headerlink" title="小知識:"></a>小知識:</h4><ul>
-<li>C＃ 跟 Java 一定會宣告參數的型別。這個叫做 <code>Type hint</code>，如果丟進去的參數不符合型別，編譯時就報錯。所以被叫做強型別語言。</li>
-<li>PHP 跟 JS 沒有強迫一定要有 Type hint。稱作弱型別語言。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/26/Interface/" data-id="ck3fjhgzq0000by9b2txo9s1x" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/30/hello-world/" class="article-date">
-  <time datetime="2019-10-30T02:01:23.703Z" itemprop="datePublished">2019-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/30/hello-world/" data-id="ck2cna6a00000qw9b74ulg4kf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
