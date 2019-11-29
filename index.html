@@ -65,6 +65,108 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Mac建置自製Apache教學" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/" class="article-date">
+  <time datetime="2019-11-29T05:59:00.000Z" itemprop="datePublished">2019-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/">Mac建置自製Apache教學</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在-Mac-上建立自製-Apache-環境"><a href="#在-Mac-上建立自製-Apache-環境" class="headerlink" title="在 Mac 上建立自製 Apache 環境"></a>在 Mac 上建立自製 Apache 環境</h1><h2 id="筆者心情小語…"><a href="#筆者心情小語…" class="headerlink" title="筆者心情小語…"></a>筆者心情小語…</h2><p>當你開心的遛個狗，哼哼小曲沒事想說更新一下心愛的 <strong>MAC</strong> 突然 <strong>Apache</strong> 開發環境就被 <strong>MAC OS</strong> 給狹持了(設定重置)!!</p>
+<p>所以說 <strong>Apache</strong> 開發環境必須獨立!</p>
+<ul>
+<li>特別感謝: 給力小夥伴指導我許多 <strong>LINUX</strong> 與 <strong>APACHE</strong> 相關設定及觀念。 </li>
+</ul>
+<h2 id="為什麼要自製-Apache-環境"><a href="#為什麼要自製-Apache-環境" class="headerlink" title="為什麼要自製 Apache 環境"></a>為什麼要自製 Apache 環境</h2><p><strong>MAC OS</strong> 更新版本有時都會突然的重置原生 <strong>Apache</strong> 設定。</p>
+<p>特別是此次 <strong>OS 10.14</strong>，連 <strong>PHP</strong> 外部建置環境都給禁止了!!</p>
+<p>若您是使用套件架設環境(<strong>MAMP</strong>、<strong>LAMP</strong>、<strong>XMAPP</strong>等…)，那您可能不會有太大的感悟。</p>
+<p>但若是您用的是 <strong>MAC</strong> 提供的原生 <strong>Apache</strong>，那您可能連做個系統小更新都要小心翼翼的。</p>
+<p>此處筆者用 <strong>HomeBrew</strong> 進行自製 <strong>Apache</strong> 環境建置。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
+<li>Mac OS(Linux) 系統電腦一台。</li>
+<li><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">HomeBrew</a></li>
+</ul>
+<h2 id="開始建置吧"><a href="#開始建置吧" class="headerlink" title="開始建置吧"></a>開始建置吧</h2><ol>
+<li>關閉 Mac OS 原生的 Apache 並防止他自行啟動</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 關閉 apache</span><br><span class="line">$ sudo apachectl stop</span><br><span class="line"></span><br><span class="line">// 禁止 apache httpd 自動啟動</span><br><span class="line">$ sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist 2&gt;/dev/null</span><br></pre></td></tr></table></figure></code></pre><ol start="2">
+<li><p>使用 <strong>HomeBrew</strong> 安裝 <strong>apache</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install httpd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通過指令檢查 <strong>apache</strong> 安裝，路徑應該被更改為 <code>/usr/local/bin/apachectl</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ which apachectl</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>確認啟用指令被改寫後，重啟 <strong>apache</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apachectl -k start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>設置預設啟用程序  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo brew services start httpd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>設置 <strong>apache</strong> 基礎設定</p>
+<ul>
+<li><strong>brew</strong> 建置的 <strong>Apache</strong> 位置為: <code>/usr/local/etc/httpd</code></li>
+<li>編輯 <code>httpd.conf</code> 修改以下項目:<ul>
+<li><code>Listen 80</code></li>
+<li><code>ServerName localhost</code></li>
+<li><code>DocumentRoot &quot;/usr/local/var/www&quot;</code></li>
+<li>開啟 <code>rewrite_module</code> (移掉 <strong>#</strong>): <code>LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p> 至此， <strong>apache</strong> 應已建置完成並啟用。 連結網站吧！<br><img src="/images/MacBrewApache/p1.png" alt="ma1"></p>
+<h2 id="後話"><a href="#後話" class="headerlink" title="後話"></a>後話</h2><p>若您是剛開始進行網站架設，那後續 <code>PHP</code> 安裝可透過 <code>brew</code> 安裝。也可透過 Liip 進行後續環境建置。 請繼續往下走。</p>
+<p>若您與筆者一樣是遭逢巨變而需要重新建置新環境。那後續設定僅需由 <strong>Mac Apache</strong> 那邊移植設定檔即可(注意設定檔不可直接使用，許多路徑都不同了)。</p>
+<p><code>Liip</code> 部分 筆者是自行移植載入檔案(<code>/etc/apache2/other</code>)，並於 <code>httpd.conf</code> 下自行添加 <code>Include /usr/local/etc/httpd/other/*.conf</code>。</p>
+<h2 id="HomeBrew-建置-PHP-環境"><a href="#HomeBrew-建置-PHP-環境" class="headerlink" title="HomeBrew 建置 PHP 環境"></a>HomeBrew 建置 PHP 環境</h2><p>待補</p>
+<h2 id="Liip-建置-PHP-環境"><a href="#Liip-建置-PHP-環境" class="headerlink" title="Liip 建置 PHP 環境"></a>Liip 建置 PHP 環境</h2><p>待補</p>
+<hr>
+<ul>
+<li><p>小知識:</p>
+<ul>
+<li><p>Mac OS 是使用 <strong>plist</strong> 文件設置程序隨機啟動。 <strong>plist</strong> 文件分佈在: <code>/System/Library/LaunchDaemons/</code> 中，其中指令 <strong>apache</strong> 及 <strong>httpd</strong> 相關配置文件為 <code>org.apache.httpd.plist</code>。</p>
+</li>
+<li><p>使用 <code>brew</code> 不需 <code>root</code> 身份，若以 <code>root</code> 身份執行會被停止且警告。 </p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/" data-id="ck3jqm46t0002xl9b103x34n5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/29/Hexo/" class="article-date">
@@ -391,7 +493,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li></ul>
     </div>
   </div>
 
@@ -401,7 +503,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SOLID/" rel="tag">SOLID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SOLID/" rel="tag">SOLID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
     </div>
   </div>
 
@@ -411,7 +513,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SOLID/" style="font-size: 10px;">SOLID</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" style="font-size: 20px;">程式設計</a>
+      <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SOLID/" style="font-size: 10px;">SOLID</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" style="font-size: 20px;">程式設計</a>
     </div>
   </div>
 
@@ -431,6 +533,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/">Mac建置自製Apache教學</a>
+          </li>
         
           <li>
             <a href="/2019/11/29/Hexo/">Hexo</a>
