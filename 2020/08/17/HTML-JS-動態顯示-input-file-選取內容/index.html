@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HTML JS 動態顯示 input file 選取內容 | LinYoYo_攻城獅_學習筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用 HTML 取得本地檔案1&amp;lt;input type=&amp;quot;file&amp;quot; id=&amp;quot;testFile&amp;quot; &#x2F;&amp;gt; File API 可以從 File 物件中讀取 FileList ，FileList 內包含使用者所選取的檔案。如果使用者只選擇一個檔案，那麼我們只需要考慮第一個檔案物件。 使用 DOM 獲取選擇的檔案HTML:  1&amp;lt;input typ">
+<meta name="keywords" content="html,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML JS 動態顯示 input file 選取內容">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;08&#x2F;17&#x2F;HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9&#x2F;index.html">
+<meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記">
+<meta property="og:description" content="使用 HTML 取得本地檔案1&amp;lt;input type=&amp;quot;file&amp;quot; id=&amp;quot;testFile&amp;quot; &#x2F;&amp;gt; File API 可以從 File 物件中讀取 FileList ，FileList 內包含使用者所選取的檔案。如果使用者只選擇一個檔案，那麼我們只需要考慮第一個檔案物件。 使用 DOM 獲取選擇的檔案HTML:  1&amp;lt;input typ">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2020-08-17T08:35:17.753Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LinYoYo_攻城獅_學習筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LinYoYo_攻城獅_學習筆記</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">I feel a bit tired now but still could make it.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML-JS-動態顯示-input-file-選取內容" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/" class="article-date">
+  <time datetime="2020-08-17T08:31:00.000Z" itemprop="datePublished">2020-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML JS 動態顯示 input file 選取內容
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="使用-HTML-取得本地檔案"><a href="#使用-HTML-取得本地檔案" class="headerlink" title="使用 HTML 取得本地檔案"></a>使用 HTML 取得本地檔案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;testFile&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>File API</strong> 可以從 <strong>File</strong> 物件中讀取 <strong>FileList</strong> ，<strong>FileList</strong> 內包含使用者所選取的檔案。<br>如果使用者只選擇一個檔案，那麼我們只需要考慮第一個檔案物件。</p>
+<h1 id="使用-DOM-獲取選擇的檔案"><a href="#使用-DOM-獲取選擇的檔案" class="headerlink" title="使用 DOM 獲取選擇的檔案"></a>使用 DOM 獲取選擇的檔案</h1><p>HTML: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;testFile&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var file = document.getElementById(&apos;testFile&apos;).files[0];</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用-JQUERY-獲取選擇的檔案"><a href="#使用-JQUERY-獲取選擇的檔案" class="headerlink" title="使用 JQUERY 獲取選擇的檔案"></a>使用 <a href="https://jquery.com/" target="_blank" rel="noopener">JQUERY</a> 獲取選擇的檔案</h1><p>HTML: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;testFile&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var file = $(&apos;#testFile&apos;).get(0).files[0];</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用-change-event-獲取選擇的檔案"><a href="#使用-change-event-獲取選擇的檔案" class="headerlink" title="使用 change event 獲取選擇的檔案"></a>使用 change event 獲取選擇的檔案</h1><p>HTML: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;testFile&quot; onchange=&quot;selectFile(this.files)&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function selectFile(files) &#123;</span><br><span class="line">    var file = files[0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="獲得選取的檔案資訊"><a href="#獲得選取的檔案資訊" class="headerlink" title="獲得選取的檔案資訊"></a>獲得選取的檔案資訊</h1><p>上述的例子顯示獲取在檔案清單裡所有檔案物件的方法。<br><strong>File</strong> 提供三個包含檔案重要訊息的屬性。</p>
+<ul>
+<li><code>name</code>: 唯讀的檔案名稱，並未包含檔案路徑。</li>
+<li><code>size</code>: 為 64 位元的整數，用以表示檔案的 byte 的長度。</li>
+<li><code>type</code>: 為唯讀字串。表示檔案的 MIME-type 。若是無法取得檔案的 Mime-type ，則其值會是一個空字串 “”。</li>
+</ul>
+<h1 id="使用-FileReader-讀取文件內容"><a href="#使用-FileReader-讀取文件內容" class="headerlink" title="使用 FileReader 讀取文件內容"></a>使用 FileReader 讀取文件內容</h1><h3 id="讀取文字"><a href="#讀取文字" class="headerlink" title="讀取文字"></a>讀取文字</h3><p>HTML: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; onchange=&quot;selectTextFile(this.files)&quot; /&gt;</span><br><span class="line">&lt;p id=&quot;showText&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function selectTextFile(files) &#123;</span><br><span class="line">    if (!files.length) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    let file    = files[0];</span><br><span class="line">    let reader = new FileReader();</span><br><span class="line">    reader.onload = function () &#123;</span><br><span class="line">        document.getElementById(&apos;showText&apos;).src = this.result;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    reader.readAsText(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="當然也可以讀取圖片"><a href="#當然也可以讀取圖片" class="headerlink" title="當然也可以讀取圖片"></a>當然也可以讀取圖片</h3><p>HTML: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; onchange=&quot;selectImgFile(this.files)&quot; /&gt;</span><br><span class="line">&lt;img id=&quot;showImg&quot;&gt;&lt;/img&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function selectImgFile(files) &#123;</span><br><span class="line">    if (!files.length) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    let file   = files[0];</span><br><span class="line">    let reader = new FileReader();</span><br><span class="line">    reader.onload = function () &#123;</span><br><span class="line">        document.getElementById(&apos;showImg&apos;).src = this.result;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    reader.readAsDataURL(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a href="https://github.com/hank7891/HtmlJsInputFileShow" target="_blank" rel="noopener">Code Demo</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/" data-id="ckdy9djmr0000xp9ba1885d71" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac建置自製Apache教學</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SOLID/" rel="tag">SOLID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SOLID/" style="font-size: 10px;">SOLID</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" style="font-size: 20px;">程式設計</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/">HTML JS 動態顯示 input file 選取內容</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/">Mac建置自製Apache教學</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/Hexo/">Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/Solid/">Solid</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/Interface/">Interface</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LinYoYo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
