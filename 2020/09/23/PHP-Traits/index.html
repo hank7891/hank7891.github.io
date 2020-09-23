@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHP Traits | LinYoYo_攻城獅_學習筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PHP TraitsWhat is Traits?PHP 僅支援單一繼承: 子類別只能繼承單一物件。 若是一個類需要繼承多種行為怎麼辦呢？ Traits 解決了這個問題。 Traits 就是解決在單線繼承的限制下，讓程式碼能夠重複使用。並降低複雜度。 Traits 用於聲明可以在多個 class 中使用的屬性(property)&#x2F;函式(function)，可以是抽象或是任何可視性(public、p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP Traits">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;23&#x2F;PHP-Traits&#x2F;index.html">
+<meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記">
+<meta property="og:description" content="PHP TraitsWhat is Traits?PHP 僅支援單一繼承: 子類別只能繼承單一物件。 若是一個類需要繼承多種行為怎麼辦呢？ Traits 解決了這個問題。 Traits 就是解決在單線繼承的限制下，讓程式碼能夠重複使用。並降低複雜度。 Traits 用於聲明可以在多個 class 中使用的屬性(property)&#x2F;函式(function)，可以是抽象或是任何可視性(public、p">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2020-09-23T10:01:03.173Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LinYoYo_攻城獅_學習筆記" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LinYoYo_攻城獅_學習筆記</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">I feel a bit tired now but still could make it.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP-Traits" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/PHP-Traits/" class="article-date">
+  <time datetime="2020-09-23T10:00:52.000Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP Traits
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PHP-Traits"><a href="#PHP-Traits" class="headerlink" title="PHP Traits"></a>PHP Traits</h1><h2 id="What-is-Traits"><a href="#What-is-Traits" class="headerlink" title="What is Traits?"></a>What is Traits?</h2><p>PHP 僅支援單一繼承: 子類別只能繼承單一物件。</p>
+<p>若是一個類需要繼承多種行為怎麼辦呢？ Traits 解決了這個問題。</p>
+<p>Traits 就是解決在單線繼承的限制下，讓程式碼能夠重複使用。並降低複雜度。</p>
+<p>Traits 用於聲明可以在多個 class 中使用的屬性(property)/函式(function)，可以是抽象或是任何可視性(public、protect 、private)，甚至是靜態(abstract)屬性。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>建立語法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">trait TraitName </span><br><span class="line">&#123;</span><br><span class="line">  // some code...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用語法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class newClass </span><br><span class="line">&#123;</span><br><span class="line">    use TraitName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">trait message</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Welcome to my home.&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Welcome</span><br><span class="line">&#123;</span><br><span class="line">    use message;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$welcome = new Welcome();</span><br><span class="line">$welcome-&gt;msg();</span><br></pre></td></tr></table></figure>
+
+<p>可以同時使用多個</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">trait messageFriendly</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Welcome to my home.&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trait messageQuestion</span><br><span class="line">&#123;</span><br><span class="line">    function msgQuestion()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Why are you here?&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Welcome</span><br><span class="line">&#123;</span><br><span class="line">    use messageFriendly, messageQuestion;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$welcome = new Welcome();</span><br><span class="line">$welcome-&gt;msg();</span><br><span class="line">echo &apos;&lt;br/&gt;&apos;;</span><br><span class="line">$welcome-&gt;msgQuestion();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="若是名稱重複了呢？"><a href="#若是名稱重複了呢？" class="headerlink" title="若是名稱重複了呢？"></a>若是名稱重複了呢？</h2><p>函式名稱重複是會造成錯誤的。</p>
+<p><code>Fatal error: Trait method msg has not been applied, because there are collisions with other trait methods on...</code></p>
+<p>需要在使用時就指定要用哪一個的方法。<br><code>insteadof</code>: 宣告前者為主要使用，要是有多個要全部涵蓋進去哦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">trait messageFriendly</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Welcome to my home.&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trait messageQuestion</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Why are you here?&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trait messageC</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;C&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Welcome</span><br><span class="line">&#123;</span><br><span class="line">    use messageFriendly, messageQuestion &#123;</span><br><span class="line">        messageFriendly::msg insteadof messageQuestion, messageC;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$welcome = new Welcome();</span><br><span class="line">$welcome-&gt;msg();</span><br></pre></td></tr></table></figure>
+
+<p>那被替代掉的函式都不能用了嗎？<br><code>as</code>: 替方法進行別名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">trait messageFriendly</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Welcome to my home.&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trait messageQuestion</span><br><span class="line">&#123;</span><br><span class="line">    function msg()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;Why are you here?&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Welcome</span><br><span class="line">&#123;</span><br><span class="line">    use messageFriendly, messageQuestion &#123;</span><br><span class="line">        messageFriendly::msg insteadof messageQuestion;</span><br><span class="line">        messageQuestion::msg as msgQuestion;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$welcome = new Welcome();</span><br><span class="line">$welcome-&gt;msgQuestion();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>小提醒: 就算有使用 <code>as</code> 進行別名，還是需要先使用 <code>insteadof</code> 解重名哦。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/23/PHP-Traits/" data-id="ckff7voyz0000q99b6e4i84ub" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML JS 動態顯示 input file 選取內容</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SOLID/" rel="tag">SOLID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SOLID/" style="font-size: 10px;">SOLID</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" style="font-size: 20px;">程式設計</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/23/PHP-Traits/">PHP Traits</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/">HTML JS 動態顯示 input file 選取內容</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/">Mac建置自製Apache教學</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/Hexo/">Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/Solid/">Solid</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LinYoYo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
