@@ -65,73 +65,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-PHP-Closure-閉包、匿名函式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/" class="article-date">
-  <time datetime="2020-10-24T17:21:00.000Z" itemprop="datePublished">2020-10-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/PHP/">PHP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/">PHP Closure(閉包、匿名函式)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>還不知道 <code>PHP</code> 有 <code>Closure</code>? 那你真的落伍了！</p>
-<h2 id="What-is-Closure"><a href="#What-is-Closure" class="headerlink" title="What is Closure?"></a>What is Closure?</h2><p>Closure: 用於表示<code>匿名函式</code>的 <code>Class</code>。</p>
-<p>閉包減少了<code>命名空間</code>的混亂。也讓使用對象之間減少了<code>相依性</code>。</p>
-<p><code>PHP5.3</code> 開始支援<code>匿名函式</code>，讓一些需要彈性的場合更方便。</p>
-<h2 id="建立匿名函式"><a href="#建立匿名函式" class="headerlink" title="建立匿名函式"></a>建立匿名函式</h2><p>注意: 賦予變數<code>匿名函示</code>，結尾大括號需要加結尾符號 <code>;</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$wellcome = function () &#123;</span><br><span class="line">    echo &apos;Hi, wellcome to my Home &apos;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$wellcome();</span><br></pre></td></tr></table></figure>
-
-<p>我們可以透過 use 的宣告語法賦予匿名函式變數。<br>注意: PHP 7.1 起，不能傳入此類變數：superglobals、 $this 或者和參數重名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$houseCategory = &apos;villa&apos;;</span><br><span class="line">$wellcome = function () use ($houseCategory) &#123;</span><br><span class="line">    echo &apos;Hi, wellcome to my &apos; .  $houseCategory . &apos;.&apos;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$wellcome();</span><br></pre></td></tr></table></figure>
-
-<p>讓我們添加函式的指定參數</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$houseCategory = &apos;villa&apos;;</span><br><span class="line">$wellcome = function ($name) use ($houseCategory) &#123;</span><br><span class="line">    echo &apos;Hi &apos; . $name . &apos;, wellcome to my &apos; .  $houseCategory . &apos;.&apos;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$wellcome(&apos;YoYo&apos;);</span><br></pre></td></tr></table></figure>
-
-<p>會使用了之後，我們馬上用遞迴特性寫一個從 1 加總到指定數字的閉包吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$fib = function ($n) use (&amp;$fib) &#123;</span><br><span class="line">    if ($n == 0) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return $n + $fib($n - 1);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">echo $fib(10);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="小分享"><a href="#小分享" class="headerlink" title="小分享"></a>小分享</h2><p>筆者很常在 <code>某段邏輯前後的行為</code> 需要被重複使用時，使用閉包。<br>例如 sql 的 <code>Transaction</code>。<br>此處程式碼為 Demo 用，無法直接執行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * sqlTransaction</span><br><span class="line"> *</span><br><span class="line"> * @param \Closure $closure</span><br><span class="line"> *</span><br><span class="line"> * @return mixed</span><br><span class="line"> * @throws Exception</span><br><span class="line"> */</span><br><span class="line">public function sqlTransaction(\Closure $closure)&#123;</span><br><span class="line">    $db = \Zend_Db_Table::getDefaultAdapter();</span><br><span class="line"></span><br><span class="line">    try&#123;</span><br><span class="line">        $db-&gt;beginTransaction();</span><br><span class="line">        $re = $closure();</span><br><span class="line">        $db-&gt;commit();</span><br><span class="line"></span><br><span class="line">        return $re;</span><br><span class="line">    &#125;catch (Exception $e)&#123;</span><br><span class="line">        $db-&gt;rollBack();</span><br><span class="line">        throw new Exception($e-&gt;getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public function saveData()</span><br><span class="line">&#123;</span><br><span class="line">    $model = $this-&gt;_model;</span><br><span class="line">    $this-&gt;sqlTransaction(function () use ($data, $model) &#123;</span><br><span class="line">        // TODO 邏輯檢查</span><br><span class="line"></span><br><span class="line">        $model-&gt;update(data);</span><br><span class="line">        </span><br><span class="line">        // TODO 更新後行為</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="小知識"><a href="#小知識" class="headerlink" title="小知識"></a>小知識</h2><ul>
-<li>閉包可利用遞迴特性，取代 foreach 效果。</li>
-<li>閉包可用於邏輯處理中段需要客製化邏輯時。</li>
-<li>再叫現代化的 PHP 框架(如 Laravel)中，<code>閉包</code>已經是被大量使用的技術。 有興趣可自行去翻閱 Laravel 原始碼。</li>
-</ul>
-<h5 id="現在，你學會了嗎！？"><a href="#現在，你學會了嗎！？" class="headerlink" title="現在，你學會了嗎！？"></a>現在，你學會了嗎！？</h5>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/" data-id="ckgny9mh40000zg9bdvwzb63t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="tag">程式設計</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-PHP-Traits" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/23/PHP-Traits/" class="article-date">
@@ -732,7 +665,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
     </div>
   </div>
 
@@ -743,10 +676,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/">PHP Closure(閉包、匿名函式)</a>
-          </li>
         
           <li>
             <a href="/2020/09/23/PHP-Traits/">PHP Traits</a>
@@ -762,6 +691,10 @@
         
           <li>
             <a href="/2019/11/29/Hexo/">Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/Solid/">Solid</a>
           </li>
         
       </ul>
