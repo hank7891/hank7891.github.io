@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Solid - LinYoYo_攻城獅_學習筆記</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="LinYoYo_攻城獅_學習筆記"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LinYoYo_攻城獅_學習筆記"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。 若對該原則理解有誤，請不吝指教。 SOLID? 在程式設計的領域中，SOLID指物件導向編成和物件導向設計的五個基本原則。 當這些原則一起被應用時，可以使程式設計師開發一個容易擴充及維護的系統。 SOLID所包含的原則是通過引發編程者進行軟體原始碼代碼重構的代碼異味清掃。從而使軟體清晰可讀及具可擴展性。 SOLID"><meta property="og:type" content="blog"><meta property="og:title" content="Solid"><meta property="og:url" content="https://hank7891.github.io/2019/11/26/Solid/"><meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記"><meta property="og:description" content="其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。 若對該原則理解有誤，請不吝指教。 SOLID? 在程式設計的領域中，SOLID指物件導向編成和物件導向設計的五個基本原則。 當這些原則一起被應用時，可以使程式設計師開發一個容易擴充及維護的系統。 SOLID所包含的原則是通過引發編程者進行軟體原始碼代碼重構的代碼異味清掃。從而使軟體清晰可讀及具可擴展性。 SOLID"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://hank7891.github.io/img/og_image.png"><meta property="article:published_time" content="2019-11-26T07:57:00.000Z"><meta property="article:modified_time" content="2020-12-01T02:16:52.853Z"><meta property="article:author" content="LinYoYo"><meta property="article:tag" content="PHP"><meta property="article:tag" content="程式設計"><meta property="article:tag" content="SOLID"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hank7891.github.io/2019/11/26/Solid/"},"headline":"LinYoYo_攻城獅_學習筆記","image":["https://hank7891.github.io/img/og_image.png"],"datePublished":"2019-11-26T07:57:00.000Z","dateModified":"2020-12-01T02:16:52.853Z","author":{"@type":"Person","name":"LinYoYo"},"description":"其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。 若對該原則理解有誤，請不吝指教。 SOLID? 在程式設計的領域中，SOLID指物件導向編成和物件導向設計的五個基本原則。 當這些原則一起被應用時，可以使程式設計師開發一個容易擴充及維護的系統。 SOLID所包含的原則是通過引發編程者進行軟體原始碼代碼重構的代碼異味清掃。從而使軟體清晰可讀及具可擴展性。 SOLID"}</script><link rel="canonical" href="https://hank7891.github.io/2019/11/26/Solid/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Katalog" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Suche" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Gepostet vor&nbsp;<time dateTime="2019-11-26T07:57:00.000Z" title="2019-11-26T07:57:00.000Z">2019-11-26</time></span><span class="level-item">Aktualisiert vor&nbsp;<time dateTime="2020-12-01T02:16:52.853Z" title="2020-12-01T02:16:52.853Z">2020-12-01</time></span><span class="level-item"> LinYoYo </span><span class="level-item"><a class="link-muted" href="/categories/PHP/">PHP</a></span><span class="level-item">17 分鐘 lesen (Über 2479 Wörter)</span></div></div><h1 class="title is-3 is-size-4-mobile">Solid</h1><div class="content"><p>其實網路上對SOLID的探討及見解文章已經多不勝數。筆者在此僅記錄自身見解與歷程。</p>
+<p>若對該原則理解有誤，請不吝指教。</p>
+<h1 id="SOLID"><a href="#SOLID" class="headerlink" title="SOLID?"></a>SOLID?</h1><ul>
+<li>在<strong>程式設計</strong>的領域中，SOLID指<strong>物件導向編成</strong>和<strong>物件導向設計</strong>的五個基本原則。</li>
+<li>當這些原則一起被應用時，可以使<strong>程式設計師</strong>開發一個容易<strong>擴充</strong>及<strong>維護</strong>的系統。</li>
+<li>SOLID所包含的原則是通過引發<strong>編程者</strong>進行軟體<em>原始碼代碼重構</em>的<strong>代碼異味</strong>清掃。從而使<strong>軟體</strong>清晰可讀及具可擴展性。</li>
+<li>SOLID被典型的應用在<strong>測試驅動開發</strong>上，且是<strong>敏捷開發</strong>及<strong>自適應軟體開發</strong>的基本原則重要組成部分。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="S-Single-responsibility-principle-SRP-單一職責"><a href="#S-Single-responsibility-principle-SRP-單一職責" class="headerlink" title="S: Single responsibility principle(SRP) 單一職責"></a>S: Single responsibility principle(SRP) 單一職責</h2><p><strong>定義:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一個類別(class)&#x2F;方法(method)只能負責一個職責</span><br></pre></td></tr></table></figure>
+
+<p>如果<strong>一個類別做了兩件職責，就必須拆成兩個類別</strong>。</p>
+<ul>
+<li>當類別包含複數職責時，則其<code>內聚力</code>越低。</li>
+<li>當類別職責越單純且清楚，則其<code>內聚力</code>越高。</li>
+</ul>
+<p><strong>舉例:</strong></p>
+<p>如果<code>汽車</code>與<code>飛機</code>皆為交通工具而實作於同一個<code>類別(super obj)</code>中，汽車行為模式為 <code>run</code> 而飛機行為模式為 <code>fly</code>。那該類別內部邏輯會變得<strong>雜亂</strong>且<strong>難以維護</strong>。</p>
+<p>若將<code>汽車</code>與<code>飛機</code>個別實作，各自物件只要管理自己的<code>權責</code>。即可提高<code>內聚</code>。而特定邏輯修改時只要到對應物件內做調整，也降低了<strong>維護的難易度</strong>。</p>
+<p><strong>結論:</strong></p>
+<ul>
+<li>一個 class/method 只做一件事。</li>
+<li>遵守 SPR 可為程式提高內聚。</li>
+</ul>
+<h2 id="Open-close-principle-OCP-開放-封閉原則"><a href="#Open-close-principle-OCP-開放-封閉原則" class="headerlink" title="Open/close principle(OCP) 開放/封閉原則"></a>Open/close principle(OCP) 開放/封閉原則</h2><p><strong>定義:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程式在擴充新功能時，不更動原程式碼或者僅以最小幅度修改程式碼的開發方式。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>系統實作完若遇到新需求，必須回頭<strong>調整原本做好的程式代碼</strong>。而只要修改舊的代碼就可能造成<code>不良副作用 </code> #1。應以最小的幅度來修改已存在的程式碼（<code>甚至不修改</code>)才是最佳的情況。</p>
+</li>
+<li><p>OCP 使系統保有彈性，可以<strong>擴充新功能</strong>。若有新需求只要進行<strong>新增</strong>，而不用修改到舊有程式碼(<code>對修改封閉</code>，<code>對新增開放</code>)。進而杜絕<code>不良副作用</code>的產生。</p>
+</li>
+<li><p>OCP 只是一個原則，讓程式變得靈活的代價是需要花費額外的時間與精力將程式引入新的抽象層，還會增加程式的複雜度。所以 OCP 原則只適合被套用於經常變更的地方！</p>
+</li>
+</ul>
+<p>(#1)不良副作用: 修改程式內碼造成其他使用的該邏輯的地方產生錯誤，即大家口中的改 A 壞 B。</p>
+<p><strong>舉例:</strong></p>
+<p>設計車子時，因<code>單一職責(SPR)</code>而對車上零件(車燈、輪胎、引擎)進行模組化。<br>若此時若想將<strong>一般輪胎</strong>換成<strong>雪胎</strong>。而去修改<strong>一般輪胎</strong>的模組(物件)內容，可能造成其他使用該物件的邏輯錯誤。</p>
+<p>若遵守 <code>OCP</code> 原則，僅對輪胎新增<strong>雪胎</strong>模組，在車子內部進行替換組合。則只需<code>新增</code>還不需要<code>修改</code>。拒絕了<strong>改 A 壞 B</strong>的情況產生。</p>
+<p><strong>結論:</strong></p>
+<ul>
+<li>只有經常變更的地方需要使用 OCP 原則。</li>
+<li>系統對<code>新增開放</code>，<code>修改封閉</code>。</li>
+</ul>
+<h2 id="L-Liskov-substitution-principle-LSP-Liskov替換"><a href="#L-Liskov-substitution-principle-LSP-Liskov替換" class="headerlink" title="L: Liskov substitution principle(LSP) Liskov替換"></a>L: Liskov substitution principle(LSP) Liskov替換</h2><p><strong>定義:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Subtypes must be substitutable for their base types.</span><br><span class="line">所有子類別都可以代理父類別的工作。</span><br></pre></td></tr></table></figure>
+<p>里氏替換原則原則要能夠成立，<strong>介面(interface)</strong>/<strong>抽象方法(Abstract method)</strong> 就必須要遵守定義去實做。</p>
+<ul>
+<li><p>子類別需兌現對父類別的承諾，遵照父類別設計開發。</p>
+</li>
+<li><p>作為子類別的方法必須和他們父類別的方法<strong>操作一致</strong>，子類別中可以擁有父類別沒有的特殊功能，但是繼承的方法，<strong>功能應該兩者一致</strong>的。</p>
+</li>
+<li><p>子類不只是實現父類別的方法，而且必須<strong>名符其實</strong>，否則會發生<strong>無法預料的事情</strong>。</p>
+</li>
+</ul>
+<p><strong>舉例:</strong></p>
+<p><code>雪胎</code>及<code>一般輪胎</code>皆繼承<code>輪胎模組(父類別)</code>，而組裝者可由方法<code>取得材質(function)</code>取得輪胎材質來判斷是否適合組裝。若<code>雪胎</code>擅自更改回傳值為<code>適用地形</code>。就會造成組裝者誤判而產生<strong>無法逾期之錯誤</strong>。</p>
+<p>若遵守 <code>LSP</code> 原則，<code>取得材質(function)</code>方法應該遵循<code>輪胎模組(父類別)</code>設計結構去回傳正確值。即可避免程式的行為變得<code>不可預測</code>。</p>
+<p><strong>結論:</strong></p>
+<ul>
+<li>子類別必須遵從<strong>父類別或介面</strong>的<strong>設計理念</strong>去實作方法。</li>
+<li><strong>LSP</strong> 是實現 <strong>OCP</strong> 原則的重要方式，只有當子類別能夠<code>完全替代它們的父類別類</code>時，使用<code>父類別的函數</code>才能夠被安全的重用。</li>
+</ul>
+<h2 id="I-Interface-Segregation-Principle-ISP-介面隔離"><a href="#I-Interface-Segregation-Principle-ISP-介面隔離" class="headerlink" title="I: Interface Segregation Principle(ISP) 介面隔離"></a>I: Interface Segregation Principle(ISP) 介面隔離</h2><p><strong>定義:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Clients should not be forced to depend upon interfaces that they don’t use.</span><br><span class="line">介面不應該強迫 Client 依賴於它們用不到的方法。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The dependency of one class to another one should depend on the smallest possible interface.</span><br><span class="line">類別之間的相依關係應該建立在最小的介面上</span><br></pre></td></tr></table></figure>
+
+<p>類別與類別之間的關係，應只依賴彼此需要的<code>最少介面</code>，介面不能<code>太肥</code>，應該要<code>細化</code>。</p>
+<ul>
+<li><p>介面的目的都是提供一個讓 Client 端可以使用我們<code>開發模組的管道</code>。</p>
+</li>
+<li><p>介面處於應用<strong>程式</strong>與<strong>模組</strong>之間、或是<strong>專案</strong>與<strong>模組</strong>之間，這種關係就如同<code>第三方套件提供服務 API 給一個網站使用</code>。</p>
+</li>
+</ul>
+<p><strong>舉例:</strong></p>
+<p><code>跑車</code>與<code>玩具車</code>皆繼承<code>汽車模組(父類別)</code>，而<code>汽車模組(父類別)</code>存在一方法<code>跑(function)</code>。但玩具車並不具備<code>跑(function)</code>這個行為，若是空實作則違反 <code>LSP</code> 原則。</p>
+<p>應該設計兩<code>介面(interface)</code>:<code>模型車(interfece)</code>與<code>實車(interface)</code>。<br>而於<code>實車(interface)</code>內部宣告<code>跑(function)</code>方法，再由<code>跑車</code>與<code>玩具車</code>個別去實作對應的<code>介面(interface)</code>。</p>
+<p><strong>結論:</strong></p>
+<ul>
+<li><code>ISP</code> 可降低<strong>商業邏輯（低階模組）</strong>與 <strong>Client</strong> 之間的耦合。</li>
+<li>設計模組時，要以 <strong>Client</strong> <strong>需求的角度</strong>建立介面，且避免設計龐多功能的單一介面。</li>
+<li>設計<code>介面(interface)</code>的時候，應該考慮<strong>單一職責原則</strong>，把有關聯的方法放在一起，分割出多個單一功能的介面。</li>
+</ul>
+<h2 id="D-Dependency-Inversion-Principle-DIP-依賴反轉"><a href="#D-Dependency-Inversion-Principle-DIP-依賴反轉" class="headerlink" title="D: Dependency Inversion Principle(DIP) 依賴反轉"></a>D: Dependency Inversion Principle(DIP) 依賴反轉</h2><p><strong>定義:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">High-level modules should not depend on low-level modules. Both should depend on abstractions.</span><br><span class="line">高階模組不應該依賴於低階模組，兩者都該依賴抽象。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Abstractions should not depend on details.</span><br><span class="line">抽象不應該依賴細節。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Details should depend on abstractions.</span><br><span class="line">低階模組的實作內容應該依照抽象的定義去實作。</span><br></pre></td></tr></table></figure>
+
+<p>高階與低階，是相對關係，其實也就是 <strong>呼叫者 (Caller)</strong> 與 **被呼叫者 (Callee)**。</p>
+<ul>
+<li><p>￼<strong>高階模組</strong>直接依賴<strong>低階模組</strong>，則為<strong>高耦合</strong>。</p>
+</li>
+<li><p>不應該讓任何東西直接依賴<strong>低階模組</strong>。</p>
+</li>
+<li><p><code>DIP</code> 由 <code>DI(注入)</code> 與 <code>IOC(控制反轉)</code> 實作。目的為<code>解除耦合性(解偶)</code>。</p>
+</li>
+</ul>
+<p><strong>舉例:</strong></p>
+<p>實作<code>汽車</code>時需組裝<code>零件</code>，此時若將<code>零件</code>寫死於<code>汽車</code>中。若其中一項<code>零件</code>停產了或要更換。則需到<code>汽車</code>中修改既有內碼(違反 <code>OCP</code>)。</p>
+<p>以輪胎為例，<code>汽車</code>有內碼<code>使用 一般輪胎</code>。而<code>一般輪胎</code>剛好停產或廢棄了。那<code>汽車</code>即會出錯。<br>若是要修改還需要到<code>汽車</code>內碼中將<code>使用 一般輪胎</code>改成<code>使用 新的一般輪胎</code>。</p>
+<p>若依照 <code>DIP</code> 設計。將輪胎抽離於組裝者取得並組裝於車上。舉例來說<code>汽車-&gt;組裝輪胎(一般輪胎)</code>。<br>依上述情境若<code>一般輪胎</code>出事了，組裝者只要從外部替換輪胎<code>汽車-&gt;組裝輪胎(新的一般輪胎)</code>。<br>則不用更動<code>汽車程式內碼</code>，<code>汽車</code>與<code>輪胎</code>之間也不具備耦合性。</p>
+<p><em>結論:</em></p>
+<ul>
+<li><code>介面(interface)</code>應由<em>高階模組</em>去制定規範。</li>
+<li>使用<code>介面(interface)</code>確保<code>低階模組</code>開發正確性。</li>
+<li>遵守 <code>DIP</code> 可大大降低物件之間的<code>耦合性(解偶)</code>。</li>
+<li>依賴反轉原則可以幫助我們遵守<strong>其他原則</strong>，遵守依賴反轉的過程中會：<ul>
+<li>拆散類別的職責(<code>SRP</code>)。</li>
+<li>更容易達成 <code>OCP</code>。</li>
+<li>避免父子類別沒有依照介面的定義實作(<code>LSP</code>)。</li>
+<li>拆散介面的職責(<code>ISP</code>)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="——————"><a href="#——————" class="headerlink" title="——————-"></a>——————-</h3><p>工程師最怕聽到的就是程式又要改。<br>而SOLID原則是前人經過無數經驗統整出使程式具備容易維護且具可擴充性質。讓之後在更動程式或擴充需求時能降低修改既有程式難易度。<br>雖說SOLID原則能使程式品質有實質的躍升，但還是得注意別陷入<strong>過度設計</strong>。</p>
+<h1 id="參考網址"><a href="#參考網址" class="headerlink" title="參考網址"></a>參考網址</h1><p><a target="_blank" rel="noopener" href="https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/oodPrinciple.html">物件導向程式設計基本原則 - SOLID
+</a></p>
+<p><a target="_blank" rel="noopener" href="http://wayne265265.pixnet.net/blog/post/114919277-%E3%80%90%E7%AD%86%E8%A8%98%E3%80%91%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E8%A8%AD%E8%A8%88-%3A-solid-%E4%BB%8B%E7%B4%B9">【筆記】物件導向設計 : SOLID 介紹</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Solid</p><p><a href="https://hank7891.github.io/2019/11/26/Solid/">https://hank7891.github.io/2019/11/26/Solid/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>LinYoYo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2019-11-26</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2020-12-01</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/PHP/">PHP</a><a class="link-muted mr-2" rel="tag" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/">程式設計</a><a class="link-muted mr-2" rel="tag" href="/tags/SOLID/">SOLID</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/11/29/Hexo/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Hexo</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/11/26/Interface/"><span class="level-item">Interface</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Katalog</h3><ul class="menu-list"><li><a class="level is-mobile" href="#SOLID"><span class="level-left"><span class="level-item">1</span><span class="level-item">SOLID?</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#S-Single-responsibility-principle-SRP-單一職責"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">S: Single responsibility principle(SRP) 單一職責</span></span></a></li><li><a class="level is-mobile" href="#Open-close-principle-OCP-開放-封閉原則"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">Open/close principle(OCP) 開放/封閉原則</span></span></a></li><li><a class="level is-mobile" href="#L-Liskov-substitution-principle-LSP-Liskov替換"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">L: Liskov substitution principle(LSP) Liskov替換</span></span></a></li><li><a class="level is-mobile" href="#I-Interface-Segregation-Principle-ISP-介面隔離"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">I: Interface Segregation Principle(ISP) 介面隔離</span></span></a></li><li><a class="level is-mobile" href="#D-Dependency-Inversion-Principle-DIP-依賴反轉"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">D: Dependency Inversion Principle(DIP) 依賴反轉</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#——————"><span class="level-left"><span class="level-item">1.5.1</span><span class="level-item">——————-</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#參考網址"><span class="level-left"><span class="level-item">2</span><span class="level-item">參考網址</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Kategorien</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/HTML/"><span class="level-start"><span class="level-item">HTML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/PHP/"><span class="level-start"><span class="level-item">PHP</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/PHP/"><span class="tag">PHP</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html/"><span class="tag">html</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux/"><span class="tag">linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mac/"><span class="tag">mac</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"><span class="tag">程式設計</span><span class="tag">5</span></a></div></div></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archive</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">十一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/css/images/avatar-linyoyo.jpg" alt="LinYoYo"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">LinYoYo</p><p class="is-size-6 is-block">PHP 後端工程師</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Tainan, Taiwan</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Seiten</p><a href="/archives"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Kategorien</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">9</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/hank7891" target="_blank" rel="noopener">Folgen</a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Letzte Einträge</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-27T07:00:00.000Z">2020-11-27</time></p><p class="title"><a href="/2020/11/27/PHP-%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8-%E8%B3%87%E6%96%99%E6%B6%88%E6%AF%92/">PHP 資訊安全 - 資料消毒</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-10-24T17:21:00.000Z">2020-10-25</time></p><p class="title"><a href="/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/">PHP Closure(閉包、匿名函式)</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-09-23T10:00:00.000Z">2020-09-23</time></p><p class="title"><a href="/2020/09/23/PHP-Traits/">PHP Traits</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-08-17T08:31:00.000Z">2020-08-17</time></p><p class="title"><a href="/2020/08/17/HTML-JS-%E5%8B%95%E6%85%8B%E9%A1%AF%E7%A4%BA-input-file-%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9/">HTML JS 動態顯示 input file 選取內容</a></p><p class="categories"><a href="/categories/HTML/">HTML</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-11-29T05:59:00.000Z">2019-11-29</time></p><p class="title"><a href="/2019/11/29/Mac%E5%BB%BA%E7%BD%AE%E8%87%AA%E8%A3%BDApache%E6%95%99%E5%AD%B8/">Mac建置自製Apache教學</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a><p class="is-size-7"><span>&copy; 2020 LinYoYo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("zh-tw");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.",
+          dismiss: "Verstanden!",
+          allow: "Cookies zulassen",
+          deny: "Ablehnen",
+          link: "Mehr erfahren",
+          policy: "Cookie-Richtlinie",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Tippen Sie etwas..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Tippen Sie etwas...","untitled":"(Ohne Titel)","posts":"Seiten","pages":"Pages","categories":"Kategorien","tags":"Tags"});
+        });</script></body></html>
