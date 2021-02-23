@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>正規表示式 - Regular Expression - LinYoYo_攻城獅_學習筆記</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="LinYoYo_攻城獅_學習筆記"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LinYoYo_攻城獅_學習筆記"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="正規表示式 (Regular Expression)能為你檢查是否為全英文字串！ 很專業！ 正規表示式 (Regular Expression)能為你檢查是否為指定結構字串！ 很貼心！ 正規表示式 (Regular Expression)能為你找出複雜性組成字串！ 很厲害！"><meta property="og:type" content="blog"><meta property="og:title" content="正規表示式 - Regular Expression"><meta property="og:url" content="https://hank7891.github.io/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/"><meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記"><meta property="og:description" content="正規表示式 (Regular Expression)能為你檢查是否為全英文字串！ 很專業！ 正規表示式 (Regular Expression)能為你檢查是否為指定結構字串！ 很貼心！ 正規表示式 (Regular Expression)能為你找出複雜性組成字串！ 很厲害！"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hank7891.github.io/img/og_image.png"><meta property="article:published_time" content="2021-02-23T09:00:00.000Z"><meta property="article:modified_time" content="2021-02-23T09:10:36.641Z"><meta property="article:author" content="LinYoYo"><meta property="article:tag" content="程式設計"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hank7891.github.io/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/"},"headline":"LinYoYo_攻城獅_學習筆記","image":["https://hank7891.github.io/img/og_image.png"],"datePublished":"2021-02-23T09:00:00.000Z","dateModified":"2021-02-23T09:10:36.641Z","author":{"@type":"Person","name":"LinYoYo"},"description":"正規表示式 (Regular Expression)能為你檢查是否為全英文字串！ 很專業！ 正規表示式 (Regular Expression)能為你檢查是否為指定結構字串！ 很貼心！ 正規表示式 (Regular Expression)能為你找出複雜性組成字串！ 很厲害！"}</script><link rel="canonical" href="https://hank7891.github.io/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-23T09:00:00.000Z" title="2021-02-23T09:00:00.000Z">2021-02-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-23T09:10:36.641Z" title="2021-02-23T09:10:36.641Z">2021-02-23</time></span><span class="level-item"> LinYoYo </span><span class="level-item"><a class="link-muted" href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/">程式設計</a></span><span class="level-item">9 minutes read (About 1283 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">正規表示式 - Regular Expression</h1><div class="content"><p><strong><code>正規表示式 (Regular Expression)</code>能為你檢查是否為全英文字串！ 很專業！</strong></p>
+<p><strong><code>正規表示式 (Regular Expression)</code>能為你檢查是否為指定結構字串！ 很貼心！</strong></p>
+<p><strong><code>正規表示式 (Regular Expression)</code>能為你找出複雜性組成字串！ 很厲害！</strong></p>
+<a id="more"></a>
+
+<h2 id="What-is-it"><a href="#What-is-it" class="headerlink" title="What is it?"></a>What is it?</h2><p><code>Regular Expression</code> 又稱<code>正規表達式</code>、<code>正規表示法</code>、<code>規則運算式</code>、<code>常規表示法</code>。是一門<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">電腦科學</a>，是用來比對<strong>字串</strong>是不是有<strong>符合正確的格式</strong>。</p>
+<p>語法簡單，功能強大，最重要的是！幾乎已知的語言都有支援他。包誇了各大編譯器皆有支援。</p>
+<h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>讓我們擁有一個實用的線上工具 <a target="_blank" rel="noopener" href="https://regex101.com/">regex101</a>。</p>
+<p>您可以在 TEST STRING 的地方輸入 <code>focus</code>，在於 REGULAR EXPRESS 的地方輸入 <code>focus</code> 或其中一字元都行(注意大小寫)。是否被選起來了呢！</p>
+<p>圖片圖片</p>
+<p>下面的教學皆可直接扔進線上工具內使用哦！</p>
+<ul>
+<li>注意: 正規表示法使用時前後須由 <code>/</code> 包起來(<code>/a/</code>)，但該工具 REGULAR EXPRESS 中輸入時不用。</li>
+</ul>
+<h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><p><strong>字元</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: a字元</span><br><span class="line">.: 所有可能的字元(字母、數字或符號)。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>RegExp</th>
+<th>說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/a/</td>
+<td>含有字元 a</td>
+<td><code>a</code> , <code>ab</code> , <code>ba</code> , <code>bbacc</code></td>
+</tr>
+<tr>
+<td>/./</td>
+<td>任意單一字元</td>
+<td><code>a</code> , <code>ab</code> , <code>ba</code> , <code>bbccc</code> , <code>哈囉</code></td>
+</tr>
+<tr>
+<td>/a./</td>
+<td>含有字元 a 且後面接任意單一字元</td>
+<td><code>a1</code> , <code>ab</code> , <code>a囉</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>次數</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*: 比對前一個字串 0 次或是多次。</span><br><span class="line">?: 比對前一個字串或是不比對。</span><br><span class="line">+: + 跟 * 類似，差別在於它至少要與前一個字比對一次或以上。</span><br><span class="line"></span><br><span class="line">&#123;n,m&#125;: 指定出現次數，n 為最小次數 m 為最大次數。</span><br><span class="line">&#123;2&#125;: 2 次。</span><br><span class="line">&#123;2,&#125;: 2 次以上。</span><br><span class="line">&#123;2,5&#125;: 2 到 5 次。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>RegExp</th>
+<th>說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/ba*c/</td>
+<td>bc 字元中間，a 字元出現 0 次或是多次。</td>
+<td><code>bc</code> , <code>bac</code> , <code>baaac</code></td>
+</tr>
+<tr>
+<td>/ba?c/</td>
+<td>bc 字元中間，a 字元出現 0 次或一次。</td>
+<td><code>bc</code> , <code>bac</code></td>
+</tr>
+<tr>
+<td>/ba+c/</td>
+<td>bc 字元中間，a 字元出現 0 次或一次。</td>
+<td><code>bac</code> , <code>baaac</code></td>
+</tr>
+<tr>
+<td>/ba{2}c/</td>
+<td>bc 字元中間，a 字元出現 2 次。</td>
+<td><code>baac</code></td>
+</tr>
+<tr>
+<td>/ba{2,}c/</td>
+<td>bc 字元中間，a 字元出現 2 次以上。</td>
+<td><code>baac</code> , <code>baaac</code></td>
+</tr>
+<tr>
+<td>/ba{2,5}c/</td>
+<td>bc 字元中間，a 字元出現 2 - 5 次。</td>
+<td><code>baac</code> , <code>baaaaac</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>條件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^: 字串開頭。</span><br><span class="line">$: 字串結尾。</span><br><span class="line">|: 前字串或者後字串。</span><br><span class="line">\: 跳脫特殊字元。 若要比對正規表示式內部特殊字元(*?+&#123;&#125;[] 等...)，需用反斜線來跳脫這些特殊字元。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>RegExp</th>
+<th>說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/^ab/</td>
+<td>ab 開頭字串。</td>
+<td><code>ab</code> , <code>abc</code></td>
+</tr>
+<tr>
+<td>/ab$/</td>
+<td>ab 結尾字串。</td>
+<td><code>ab</code> , <code>cab</code></td>
+</tr>
+<tr>
+<td>/acc</td>
+<td>bcc/</td>
+<td>acc 字串或 bcc 字串。</td>
+</tr>
+<tr>
+<td>/a\*/</td>
+<td>a*字串。</td>
+<td><code>a*</code> , <code>aa*</code> , <code>a*a</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>多字元篩選</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ ] : [] 內所包含字元。</span><br><span class="line">[^] : 不存在 [] 內的任何字元。</span><br><span class="line">[-] : 連號字元(0-9 a-z A-Z)。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>RegExp</th>
+<th>說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/[abc]/</td>
+<td>abc 任一字串。</td>
+<td><code>abc</code> , <code>ade</code> , <code>bde</code> , <code>cde</code></td>
+</tr>
+<tr>
+<td>/[^abc]/</td>
+<td>非 abc 任一字串。</td>
+<td><code>def</code> , <code>ggg</code> , <code>ddd</code></td>
+</tr>
+<tr>
+<td>/[0-9]/</td>
+<td>數字 0 - 9</td>
+<td><code>0123456789</code> , <code>a0b</code> , <code>9a8n</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>在 <code>[ ]</code> 後面接上 <code>&#123;n&#125;</code>，則會取得 <code>[]</code> 中指定數量組合(不分順序)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EX: [abc]&#123;2&#125; : &#96;ab&#96; , &#96;cb&#96; , &#39;ac&#39;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<p><strong>特殊字元</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\d: 任何數字字元，等同 [0-9]</span><br><span class="line">\D: 任何非數字字元，等同 [^0-9]</span><br><span class="line">\w: 任何數字字母底線，等同 [A-Za-z0-9_]</span><br><span class="line">\W: 任何非數字字母底線，等同 [^A-Za-z0-9_]</span><br><span class="line">\s: 任何空白字元(空白,換行,tab)，等同 [ \f\n\r\t\v]</span><br><span class="line">\S: 任何非空白字元(空白,換行,tab)，等同 [^ \f\n\r\t\v]</span><br></pre></td></tr></table></figure>
+
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">西元生日: 四個數字開頭 - 兩個數字 - 兩個數字結尾</span><br><span class="line">RegExp:  &#x2F;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;$&#x2F;</span><br><span class="line"></span><br><span class="line">身分證字號: 英文字母開頭(大寫) 九個數字</span><br><span class="line">RegExp:  &#x2F;^[A-Z]\d&#123;9&#125;$&#x2F;</span><br><span class="line"></span><br><span class="line">手機號碼: 國碼開頭(09) 八個數字</span><br><span class="line">RegExp:  &#x2F;^09\d&#123;8&#125;$&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h2 id="同場加映"><a href="#同場加映" class="headerlink" title="同場加映"></a>同場加映</h2><p><strong>Regex matching line not containing the string</strong><br>不包含指定的字元！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegExp: ^((?!YoYo).)*$</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled="" type="checkbox"> Hello YoYo!</li>
+<li><input checked="" disabled="" type="checkbox"> Hello Hank!</li>
+</ul>
+<hr>
+<p><strong>保留差異字元取代</strong></p>
+<ul>
+<li>筆者覺得這個超重要，大家一定要會。</li>
+</ul>
+<p>在<code>正規表示式</code>中被 <code>()</code> 所選起來的參數可以被保留至變數中。<br>保留變數會由 <strong>$1</strong> <strong>$2</strong> <strong>$3</strong> 所使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 一段句子中，若只替換問候語而保留人名。</span><br><span class="line">Hello, YoYo!</span><br><span class="line">Hello, Hank!</span><br><span class="line"></span><br><span class="line">搜尋 RegExp:  &#x2F;Hello, (.*)!&#x2F;</span><br><span class="line">取代 RegExp:  &#x2F;Shit, $1!&#x2F;</span><br><span class="line"></span><br><span class="line"># 輸出結果</span><br><span class="line">Shit, YoYo!</span><br><span class="line">Shit, Hank!</span><br></pre></td></tr></table></figure>
+
+<p>什麼？ 你問我這有什麼用？<br>筆者遇到的問題是，因為語言版本的關係。要將程式內的變數使用 <code>&#123;&#125;</code> 替換為 <code>[]</code>;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ex:</span><br><span class="line">$str&#123;0&#125;;</span><br><span class="line">$str&#123;1&#125;;</span><br><span class="line">$str&#123;2&#125;;</span><br><span class="line">$str&#123;3&#125;;</span><br><span class="line"></span><br><span class="line">$str&#123;&#39;name&#39;&#125;;</span><br><span class="line">$str&#123;&#39;email&#39;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>總不可能要我一個一個去替換吧！！<br>這邊考考各位，要怎麼一組替代語法將 <code>$str&#123;&#125;</code> 替換成 <code>$str[]</code> ！<br>筆者的答案在下方哦 ※1。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p><code>Regular Expression</code> 是非常好用的工具，且應用範圍很廣。編譯器對專案全區域搜尋、各程式語言內部使用設置是資料庫應用都可以做出很好的工作效率。</p>
+<p>這篇只是筆者對基本 <code>Regular Expression</code> 的介紹。<br>大家能在利用網路資源，進行更深入的學習。</p>
+<hr>
+<p>※1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搜尋 RegExp:  \$str\&#123;([^\&#125;]*)\&#125;</span><br><span class="line">取代 RegExp:  \$str\[$1\]</span><br></pre></td></tr></table></figure></div><div class="article-licensing box"><div class="licensing-title"><p>正規表示式 - Regular Expression</p><p><a href="https://hank7891.github.io/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/">https://hank7891.github.io/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>LinYoYo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/">程式設計</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/12/06/JavaScript-%E8%AE%8A%E6%95%B8%E8%88%87%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/"><span class="level-item">JavaScript基礎篇[1] 變數與資料型別</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#What-is-it"><span class="level-left"><span class="level-item">1</span><span class="level-item">What is it?</span></span></a></li><li><a class="level is-mobile" href="#開始之前"><span class="level-left"><span class="level-item">2</span><span class="level-item">開始之前</span></span></a></li><li><a class="level is-mobile" href="#語法"><span class="level-left"><span class="level-item">3</span><span class="level-item">語法</span></span></a></li><li><a class="level is-mobile" href="#實例"><span class="level-left"><span class="level-item">4</span><span class="level-item">實例</span></span></a></li><li><a class="level is-mobile" href="#同場加映"><span class="level-left"><span class="level-item">5</span><span class="level-item">同場加映</span></span></a></li><li><a class="level is-mobile" href="#結語"><span class="level-left"><span class="level-item">6</span><span class="level-item">結語</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/HTML/"><span class="level-start"><span class="level-item">HTML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/JavaScript/"><span class="level-start"><span class="level-item">JavaScript</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/PHP/"><span class="level-start"><span class="level-item">PHP</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"><span class="level-start"><span class="level-item">程式設計</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/PHP/"><span class="tag">PHP</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html/"><span class="tag">html</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux/"><span class="tag">linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mac/"><span class="tag">mac</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"><span class="tag">程式設計</span><span class="tag">8</span></a></div></div></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/css/images/avatar-linyoyo.jpg" alt="LinYoYo"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">LinYoYo</p><p class="is-size-6 is-block">PHP 後端工程師</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Tainan, Taiwan</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">9</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/hank7891" target="_blank" rel="noopener">Follow</a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-02-23T09:00:00.000Z">2021-02-23</time></p><p class="title"><a href="/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/">正規表示式 - Regular Expression</a></p><p class="categories"><a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/">程式設計</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-06T13:20:00.000Z">2020-12-06</time></p><p class="title"><a href="/2020/12/06/JavaScript-%E8%AE%8A%E6%95%B8%E8%88%87%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/">JavaScript基礎篇[1] 變數與資料型別</a></p><p class="categories"><a href="/categories/JavaScript/">JavaScript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-01T09:20:00.000Z">2020-12-01</time></p><p class="title"><a href="/2020/12/01/%E9%87%8D%E6%96%B0%E6%93%81%E6%8A%B1%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E6%B7%BA%E8%AB%87%20JavaScript/">重新擁抱程式設計 - 淺談 JavaScript</a></p><p class="categories"><a href="/categories/JavaScript/">JavaScript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-27T07:00:00.000Z">2020-11-27</time></p><p class="title"><a href="/2020/11/27/PHP-%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8-%E8%B3%87%E6%96%99%E6%B6%88%E6%AF%92/">PHP 資訊安全 - 資料消毒</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-10-24T17:21:00.000Z">2020-10-25</time></p><p class="title"><a href="/2020/10/25/PHP-Closure-%E9%96%89%E5%8C%85%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F/">PHP Closure(閉包、匿名函式)</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a><p class="is-size-7"><span>&copy; 2021 LinYoYo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
