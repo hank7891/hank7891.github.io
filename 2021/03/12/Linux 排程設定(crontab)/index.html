@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Linux 排程設定(crontab) - LinYoYo_攻城獅_學習筆記</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="LinYoYo_攻城獅_學習筆記"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LinYoYo_攻城獅_學習筆記"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="linux 排程設定。 linux crontab 設定。 linux 自動工作設定 crontab 設定。  夠了哦！！…"><meta property="og:type" content="blog"><meta property="og:title" content="Linux 排程設定(crontab)"><meta property="og:url" content="https://hank7891.github.io/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/"><meta property="og:site_name" content="LinYoYo_攻城獅_學習筆記"><meta property="og:description" content="linux 排程設定。 linux crontab 設定。 linux 自動工作設定 crontab 設定。  夠了哦！！…"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hank7891.github.io/img/og_image.png"><meta property="article:published_time" content="2021-03-12T06:16:00.000Z"><meta property="article:modified_time" content="2021-03-12T06:17:23.127Z"><meta property="article:author" content="LinYoYo"><meta property="article:tag" content="Linux"><meta property="article:tag" content="crontab"><meta property="article:tag" content="排程"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hank7891.github.io/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/"},"headline":"LinYoYo_攻城獅_學習筆記","image":["https://hank7891.github.io/img/og_image.png"],"datePublished":"2021-03-12T06:16:00.000Z","dateModified":"2021-03-12T06:17:23.127Z","author":{"@type":"Person","name":"LinYoYo"},"description":"linux 排程設定。 linux crontab 設定。 linux 自動工作設定 crontab 設定。  夠了哦！！…"}</script><link rel="canonical" href="https://hank7891.github.io/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-12T06:16:00.000Z" title="2021-03-12T06:16:00.000Z">2021-03-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-12T06:17:23.127Z" title="2021-03-12T06:17:23.127Z">2021-03-12</time></span><span class="level-item"> LinYoYo </span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">4 minutes read (About 604 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Linux 排程設定(crontab)</h1><div class="content"><ul>
+<li>linux 排程設定。</li>
+<li>linux crontab 設定。</li>
+<li>linux 自動工作設定</li>
+<li>crontab 設定。</li>
+</ul>
+<p><strong>夠了哦！！</strong><br><strong>…</strong></p>
+<a id="more"></a>
+
+<h1 id="查看與編輯"><a href="#查看與編輯" class="headerlink" title="查看與編輯"></a>查看與編輯</h1><p>查看自己 <code>crontab</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<p>查看指定使用者的 <code>crontab</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo crontab -u username -l</span><br></pre></td></tr></table></figure>
+
+<p>編輯自己的 <code>crontab</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>編輯指定使用者的 <code>crontab</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo crontab -u username -e</span><br></pre></td></tr></table></figure>
+
+<p>刪除<strong>所有</strong> <code>crontab</code> – 注意: 是<strong>所有</strong>!!!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><p>在 <code>crontab</code> 設定中，每一行設定就代表一個定期排程。</p>
+<h2 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h2><p>格式如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIN HOUR DOM MON DOW CMD </span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>說明</th>
+<th>解說</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MIN</td>
+<td>分鐘</td>
+<td><code>0</code> - <code>59</code>。</td>
+</tr>
+<tr>
+<td>HOUR</td>
+<td>小時</td>
+<td><code>0</code> - <code>23</code>。</td>
+</tr>
+<tr>
+<td>DOM</td>
+<td>日</td>
+<td><code>1</code> - <code>31</code>。</td>
+</tr>
+<tr>
+<td>MON</td>
+<td>月</td>
+<td><code>1</code> - <code>12</code>，可用英文縮寫 Ex: <code>Jan</code>。</td>
+</tr>
+<tr>
+<td>DOW</td>
+<td>星期</td>
+<td><code>0</code> - <code>7</code>，<code>0</code> 與 <code>7</code> 的是星期日。也可用英文縮寫 Ex: <code>Sun</code>。</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>執行指令</td>
+<td>任何可執行的程式或指令稿。</td>
+</tr>
+</tbody></table>
+<h2 id="特殊符號"><a href="#特殊符號" class="headerlink" title="特殊符號"></a>特殊符號</h2><table>
+<thead>
+<tr>
+<th>字元</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*(星號)</td>
+<td>代表接受任意時刻。 若在月份那一欄填入星號，則代表每一月份皆會執行指令。</td>
+</tr>
+<tr>
+<td>,(逗號)</td>
+<td>代表分隔時段。 如果要下達的工作是 3:00 與 6:00 時，就會是： 0 3,6 * * * CMD</td>
+</tr>
+<tr>
+<td>-(減號)</td>
+<td>代表一段時間範圍內。 8 點到 12 點之間的每小時的 20 分都進行一項工作：20 8-12 * * * CMD</td>
+</tr>
+<tr>
+<td>/n(斜線)</td>
+<td>n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：*/5 * * * * CMD</td>
+</tr>
+</tbody></table>
+<h2 id="開始設定"><a href="#開始設定" class="headerlink" title="開始設定"></a>開始設定</h2><p>由於需要設定的內容很多又不方便記憶，所以可以將下列註解貼在開頭。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># ┌───────────── 分鐘   (0 - 59)</span><br><span class="line"># │ ┌─────────── 小時   (0 - 23)</span><br><span class="line"># │ │ ┌───────── 日     (1 - 31)</span><br><span class="line"># │ │ │ ┌─────── 月     (1 - 12)</span><br><span class="line"># │ │ │ │ ┌───── 星期幾 (0 - 7，0 是週日，6 是週六，7 也是週日)</span><br><span class="line"># │ │ │ │ │</span><br><span class="line"># * * * * * command</span><br></pre></td></tr></table></figure>
+
+<p>以下是一些基本的範例，指令為<code>寫入觸發時間</code>。 </p>
+<p>注意: 確認執行路徑是否可行，可先將 cmd 指令拿去執行看是否可行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 輸出觸發時間至指定位置</span><br><span class="line">date &gt;&gt; ~&#x2F;text.txt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 每五分鐘執行一次</span><br><span class="line">*&#x2F;5 * * * * date &gt;&gt; ~&#x2F;text.txt</span><br><span class="line"></span><br><span class="line"># 每日早上 8 點到 12 點，整點執行</span><br><span class="line">0 8-12 * * * date &gt;&gt; ~&#x2F;text.txt</span><br><span class="line"></span><br><span class="line"># 每月 1 日 、15 日、29 日 凌晨五點各執行一次</span><br><span class="line">0 5 1,15,29 * * date &gt;&gt; ~&#x2F;text.txt</span><br></pre></td></tr></table></figure>
+
+<p>設定好後儲存，即可生效！</p>
+<h1 id="實用工具"><a href="#實用工具" class="headerlink" title="實用工具"></a>實用工具</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://crontab.guru/#10_5_*_*_*">Crontab Guru</a>，能夠幫你轉換為人類可讀時間。</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Linux 排程設定(crontab)</p><p><a href="https://hank7891.github.io/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/">https://hank7891.github.io/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>LinYoYo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-03-12</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-03-12</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Linux/">Linux</a><a class="link-muted mr-2" rel="tag" href="/tags/crontab/">crontab</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%8E%92%E7%A8%8B/">排程</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/03/03/PHP%E8%BC%B8%E5%87%BALog%E6%AA%94%E6%A1%88/"><span class="level-item">PHP 輸出 Log 檔案</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#查看與編輯"><span class="level-left"><span class="level-item">1</span><span class="level-item">查看與編輯</span></span></a></li><li><a class="level is-mobile" href="#設定"><span class="level-left"><span class="level-item">2</span><span class="level-item">設定</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基本設定"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">基本設定</span></span></a></li><li><a class="level is-mobile" href="#特殊符號"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">特殊符號</span></span></a></li><li><a class="level is-mobile" href="#開始設定"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">開始設定</span></span></a></li></ul></li><li><a class="level is-mobile" href="#實用工具"><span class="level-left"><span class="level-item">3</span><span class="level-item">實用工具</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/HTML/"><span class="level-start"><span class="level-item">HTML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/JavaScript/"><span class="level-start"><span class="level-item">JavaScript</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/PHP/"><span class="level-start"><span class="level-item">PHP</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"><span class="level-start"><span class="level-item">程式設計</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PHP/"><span class="tag">PHP</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/crontab/"><span class="tag">crontab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html/"><span class="tag">html</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux/"><span class="tag">linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mac/"><span class="tag">mac</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8E%92%E7%A8%8B/"><span class="tag">排程</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"><span class="tag">程式設計</span><span class="tag">9</span></a></div></div></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/css/images/avatar-linyoyo.jpg" alt="LinYoYo"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">LinYoYo</p><p class="is-size-6 is-block">PHP 後端工程師</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Tainan, Taiwan</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">12</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/hank7891" target="_blank" rel="noopener">Follow</a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-12T06:16:00.000Z">2021-03-12</time></p><p class="title"><a href="/2021/03/12/Linux%20%E6%8E%92%E7%A8%8B%E8%A8%AD%E5%AE%9A(crontab)/">Linux 排程設定(crontab)</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-03T06:56:00.000Z">2021-03-03</time></p><p class="title"><a href="/2021/03/03/PHP%E8%BC%B8%E5%87%BALog%E6%AA%94%E6%A1%88/">PHP 輸出 Log 檔案</a></p><p class="categories"><a href="/categories/PHP/">PHP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-02-23T09:00:00.000Z">2021-02-23</time></p><p class="title"><a href="/2021/02/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%20(Regular%20Expression)/">正規表示式 - Regular Expression</a></p><p class="categories"><a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/">程式設計</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-06T13:20:00.000Z">2020-12-06</time></p><p class="title"><a href="/2020/12/06/JavaScript-%E8%AE%8A%E6%95%B8%E8%88%87%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/">JavaScript基礎篇[1] 變數與資料型別</a></p><p class="categories"><a href="/categories/JavaScript/">JavaScript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-01T09:20:00.000Z">2020-12-01</time></p><p class="title"><a href="/2020/12/01/%E9%87%8D%E6%96%B0%E6%93%81%E6%8A%B1%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E6%B7%BA%E8%AB%87%20JavaScript/">重新擁抱程式設計 - 淺談 JavaScript</a></p><p class="categories"><a href="/categories/JavaScript/">JavaScript</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="LinYoYo_攻城獅_學習筆記" height="28"></a><p class="is-size-7"><span>&copy; 2021 LinYoYo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
